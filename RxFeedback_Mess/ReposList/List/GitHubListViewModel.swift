@@ -22,14 +22,16 @@ final class GitHubListViewModel {
             reduce: GitHubState.reduce,
             feedback:
                 UI,
-                react(request: { $0.loadNextPage }, effects: { [githubServices] resource in
-                    return githubServices
-                        .getRepositories(resource)
-                        .asObservable()
-                        .asSignal(onErrorJustReturn: .failure(.generic))
-                        .map(GitHubEvent.response)
-                    })
+            react(request: { $0.loadNextPage }) { [getRepositories] in getRepositories($0) }
         )
+    }
+    
+    func getRepositories(resource: URL) -> Signal<GitHubEvent> {
+        githubServices
+            .getRepositories(resource)
+            .asObservable()
+            .asSignal(onErrorJustReturn: .failure(.generic))
+            .map(GitHubEvent.response)
     }
     
     func triggerLoadNextPage(
