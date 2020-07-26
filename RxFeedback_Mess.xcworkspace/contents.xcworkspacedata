@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/andersonklossmaia/Desktop/Pessoal/RxFeedback_Mess/RxFeedback_Mess.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RxFeedback_Mess.xcodeproj">
+   </FileRef>
+</Workspace>
